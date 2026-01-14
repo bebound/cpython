@@ -13,6 +13,7 @@ jobs:
   build:
     name: zip installer
     timeout-minutes: 60
+    runs-on: windows-2022
     env:
       ARCH: windows-2022
       IncludeFreethreaded: true
