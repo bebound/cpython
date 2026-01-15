@@ -22,8 +22,11 @@ jobs:
     - uses: actions/checkout@v6
       with:
         persist-credentials: false
+    - name: Build
+      run:  ./Tools/msi/build.bat -"${ARCH}" --skip-doc
+      shell: bash
     - name: Build CPython installer
-      run: ./Tools/msi/buildrelease.bat -"${ARCH}" --skip-doc
+      run:  ./Tools/msi/buildrelease.bat -"${ARCH}" --skip-doc --skip-build
       shell: bash
     - name: Find built installer
       run: dir ./PCBuild/
