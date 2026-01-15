@@ -17,7 +17,7 @@ jobs:
     runs-on: windows-2022
     env:
       ARCH: x64
-      IncludeFreethreaded: true
+      IncludeFreethreaded: false
     steps:
     - uses: actions/checkout@v6
       with:
