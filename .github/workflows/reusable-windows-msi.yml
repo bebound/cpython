@@ -1,12 +1,7 @@
 name: Reusable Windows MSI
 
 on:
-  workflow_call:
-    inputs:
-      arch:
-        description: CPU architecture
-        required: true
-        type: string
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -16,11 +11,11 @@ env:
 
 jobs:
   build:
-    name: installer for ${{ inputs.arch }}
-    runs-on: ${{ inputs.arch == 'arm64' && 'windows-11-arm' || 'windows-2022' }}
+    name: zip installer
     timeout-minutes: 60
+    runs-on: windows-2022
     env:
-      ARCH: ${{ inputs.arch }}
+      ARCH: windows-2022
       IncludeFreethreaded: true
     steps:
     - uses: actions/checkout@v6
