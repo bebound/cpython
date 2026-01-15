@@ -16,17 +16,17 @@ jobs:
     timeout-minutes: 60
     runs-on: windows-2022
     env:
-      ARCH: amd64
+      ARCH: x64
       IncludeFreethreaded: true
     steps:
     - uses: actions/checkout@v6
       with:
         persist-credentials: false
     - name: Build CPython installer
-      run: ./Tools/msi/buildrelease.bat -"${ARCH}"
+      run: ./Tools/msi/buildrelease.bat -"${ARCH}" -o dist --skip-doc
       shell: bash
     - name: Upload installer artifact
       uses: actions/upload-artifact@v4
       with:
         name: python-msi
-        path: ./PCBuild/**/&.zip
+        path: ./dist
