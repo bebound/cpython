@@ -22,20 +22,17 @@ jobs:
     - uses: actions/checkout@v6
       with:
         persist-credentials: false
-    - name: Dummy
+    - name: Get External
       run:  ./PCbuild/get_externals.bat
       shell: bash
-    - name: Build
-      run:  ./Tools/msi/build.bat -c Release -"${ARCH}" --skip-doc --pack
+    - name: Build CPython installer
+      run:  ./Tools/msi/buildrelease.bat -"${ARCH}" --skip-doc --skip-msi --skip-nuget
       shell: bash
-    # - name: Build CPython installer
-    #   run:  ./Tools/msi/buildrelease.bat -"${ARCH}" --skip-doc --skip-build
-    #   shell: bash
     - name: Find built installer
       run: dir ./PCBuild/
       shell: bash
     - name: Upload installer artifact
       uses: actions/upload-artifact@v4
       with:
-        name: python-msi
-        path: ./PCBuild/
+        name: python-zip
+        path: ./PCBuild/amd64/en-us/
