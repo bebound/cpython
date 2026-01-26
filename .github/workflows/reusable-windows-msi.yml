@@ -35,4 +35,4 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: python-zip
-        path: ./PCBuild/amd64/en-us/
+        path: ./PCBuild/amd64/en-us/*.zip
