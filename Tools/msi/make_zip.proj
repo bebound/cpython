@@ -19,7 +19,7 @@
         <Arguments>$(Arguments) -b "$(BuildPath.TrimEnd(`\`))" -s "$(PySourcePath.TrimEnd(`\`))"</Arguments>
         <Arguments>$(Arguments) -t "$(IntermediateOutputPath)\zip_$(ArchName)"</Arguments>
         <Arguments>$(Arguments) --zip "$(TargetPath)"</Arguments>
-        <Arguments>$(Arguments) --precompile --zip-lib --include-underpth --include-stable --flat-dlls</Arguments>
+        <Arguments>$(Arguments) --precompile --zip-lib --include-underpth --include-stable</Arguments>
         <Environment>$(Environment)%0D%0Aset PYTHONPATH=$(PySourcePath)Lib</Environment>
     </PropertyGroup>
 
