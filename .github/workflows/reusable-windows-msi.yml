@@ -26,11 +26,11 @@ jobs:
       run:  ./PCbuild/get_externals.bat
       shell: bash
     - name: Build
-      run:  ./Tools/msi/build.bat -"${ARCH}" --skip-doc
+      run:  ./Tools/msi/build.bat -c Release -"${ARCH}" --skip-doc --pack
       shell: bash
-    - name: Build CPython installer
-      run:  ./Tools/msi/buildrelease.bat -"${ARCH}" --skip-doc --skip-build
-      shell: bash
+    # - name: Build CPython installer
+    #   run:  ./Tools/msi/buildrelease.bat -"${ARCH}" --skip-doc --skip-build
+    #   shell: bash
     - name: Find built installer
       run: dir ./PCBuild/
       shell: bash
